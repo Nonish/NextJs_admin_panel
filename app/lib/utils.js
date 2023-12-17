@@ -6,8 +6,11 @@ export const connectToDB = async () => {
   try {
     if (connection.isConnected) return;
     const db = await mongoose.connect(process.env.DATABASE);
+    console.log("DB=>>", db);
     connection.isConnected = db.connections[0].readyState;
-    // console.log("DB=>>", db);
+    console.log("DBC=>>", db.connections[0]);
+    console.log("DBR=>>", db.connections[0].readyState);
+
   } catch (error) {
     console.log(error)
     throw new Error(error);

@@ -35,12 +35,10 @@ export const { signIn, signOut, auth } = NextAuth({
         } catch (err) {
           return null;
         }
-      },
+      },  
     }),
   ],
-
-  // ADD ADDITIONAL INFORMATION TO SESSION
-  callbacks: {
+  callbacks: { // ADD ADDITIONAL INFORMATION TO SESSION
     async jwt({ token, user }) {
       if (user) {
         token.username = user.username;
